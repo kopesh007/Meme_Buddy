@@ -1,0 +1,295 @@
+{% extends "base.html"%}
+
+{% block "content"%}
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="feed-page">
+
+        <div class="feed-layout">
+
+            <!-- ================= LEFT SIDEBAR ================= -->
+
+            <aside class="feed-sidebar">
+
+                <div class="sidebar-profile">
+
+                    <div class="sidebar-avatar">
+                        😎
+                    </div>
+
+                    <div>
+                        <h3>Welcome, Meme Lover!</h3>
+                        <p>@memebuddy</p>
+                    </div>
+
+                </div>
+
+
+                <div class="sidebar-menu">
+
+                    <a href="#" class="sidebar-item active">
+                        <span>🏠</span>
+                        Home
+                    </a>
+
+                    <a href="#" class="sidebar-item">
+                        <span>👤</span>
+                        My Profile
+                    </a>
+
+                    <a href="#" class="sidebar-item">
+                        <span>➕</span>
+                        Create Post
+                    </a>
+
+                    <a href="#" class="sidebar-item">
+                        <span>📞</span>
+                        Contact
+                    </a>
+
+                </div>
+
+
+                <div class="sidebar-tip">
+
+                    <span>💡</span>
+
+                    <p>
+                        Got a funny meme?
+                        Share it with the Meme Buddy community!
+                    </p>
+
+                </div>
+
+            </aside>
+
+
+            <!-- ================= POSTS FEED ================= -->
+
+            <section class="posts-feed">
+
+                <div class="feed-heading">
+
+                    <div>
+                        <h1>Latest Memes 😂</h1>
+                        <p>See what your Meme Buddies are sharing.</p>
+                    </div>
+
+                    <a href="#" class="create-post-btn">
+                        + Create
+                    </a>
+
+                </div>
+
+
+                <!-- ================= POST 1 ================= -->
+
+                <article class="post-card">
+
+                    <!-- Post Header -->
+
+                    <div class="post-header">
+
+                        <div class="post-user">
+
+                            <div class="post-avatar avatar-purple">
+                                🤓
+                            </div>
+
+                            <div class="post-user-info">
+                                <h3>{{user.username}}</h3>
+                                <p>2 hours ago</p>
+                            </div>
+
+                        </div> 
+
+                    </div>
+
+
+                    <!-- Post Image -->
+
+                    <div class="post-image post-gradient-one">
+
+                        <div class="meme-big-emoji">
+                            💻
+                        </div>
+
+                        <div class="meme-big-text">
+                            ME:
+                            <br>
+                            I'LL FIX THIS BUG
+                            <br>
+                            IN 5 MINUTES
+                        </div>
+
+                    </div>
+
+
+                    <!-- Post Actions -->
+
+                    <div class="post-actions">
+
+                        <div class="post-action-left">
+
+                            <button class="action-btn">
+                                ♡
+                            </button>
+
+
+                        </div>
+
+                        <button class="save-btn">
+                            ♧
+                        </button>
+
+                    </div>
+
+
+                    <!-- Likes -->
+
+                    <div class="post-likes">
+                        Liked by <strong>funny_guy</strong> and
+                        <strong>2,438 others</strong>
+                    </div>
+
+
+                    <!-- Caption -->
+
+                    <div class="post-caption">
+
+                        <strong>{{user.username}}</strong>
+
+                        <span>
+                            {{user.caption}}😭😂
+                        </span>
+
+                    </div>
+
+
+                </article>
+
+
+
+            </section>
+
+
+            <!-- ================= RIGHT SIDEBAR ================= -->
+
+            <aside class="right-sidebar">
+
+                <div class="suggestion-heading">
+
+                    <h3>Suggestions for you</h3>
+
+                    <a href="#">See all</a>
+
+                </div>
+
+
+                <div class="suggested-user">
+
+                    <div class="suggested-avatar">
+                        😂
+                    </div>
+
+                    <div class="suggested-info">
+                        <strong>funny_world</strong>
+                        <span>Popular meme creator</span>
+                    </div>
+
+                    <a href="#" class="follow-btn">
+                        Follow
+                    </a>
+
+                </div>
+
+
+                <div class="suggested-user">
+
+                    <div class="suggested-avatar">
+                        🤣
+                    </div>
+
+                    <div class="suggested-info">
+                        <strong>daily_memes</strong>
+                        <span>Followed by code_master</span>
+                    </div>
+
+                    <a href="#" class="follow-btn">
+                        Follow
+                    </a>
+
+                </div>
+
+
+                <div class="suggested-user">
+
+                    <div class="suggested-avatar">
+                        🤪
+                    </div>
+
+                    <div class="suggested-info">
+                        <strong>laugh_hub</strong>
+                        <span>New to Meme Buddy</span>
+                    </div>
+
+                    <a href="#" class="follow-btn">
+                        Follow
+                    </a>
+
+                </div>
+
+
+                <div class="right-footer">
+
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy</a>
+
+                    <p>
+                        © 2026 Meme Buddy
+                    </p>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= MOBILE BOTTOM NAV ================= -->
+
+    <nav class="mobile-bottom-nav">
+
+        <a href="#" class="mobile-nav-item active">
+            🏠
+            <span>Home</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item">
+            🔍
+            <span>Search</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item">
+            ➕
+            <span>Create</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item">
+            ❤️
+            <span>Likes</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item">
+            👤
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+{% endblock %}
+
