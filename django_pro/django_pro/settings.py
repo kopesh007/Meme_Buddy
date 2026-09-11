@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-gw0le^1&8l3-yc256&8nq2v7jg15!tb(3a#vp+*pj6c^nfp-uu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'django_pro.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/"templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'django_pro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'meme',
+        'USER':'root',
+        'PASSWORD':'kopeshdb',
+        'HOST':'localhost',
+        'PORT':'3306',
     }
 }
 
@@ -118,3 +122,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS=[BASE_DIR/"instagram"/"static"]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT=BASE_DIR/'media'
+
+
