@@ -1,0 +1,189 @@
+{% extends 'base.html'%}
+
+{% block "content" %}
+    <!-- ================= CREATE POST ================= -->
+
+    <main class="create-post-page">
+
+        <div class="create-post-container">
+
+            <!-- Page Heading -->
+
+            <div class="create-post-heading">
+
+                <div class="create-heading-icon">
+                    😂
+                </div>
+
+                <div>
+                    <h1>Create a Post</h1>
+                    <p>Share something funny with your Meme Buddies!</p>
+                </div>
+
+            </div>
+
+
+            <!-- Form Card -->
+
+            <div class="create-post-card">
+
+                <form method="post" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+
+                    <!-- ================= IMAGE ================= -->
+
+                    <div class="form-group">
+
+                        <label for="image">
+                            Meme Image
+                        </label>
+
+                        <div class="image-upload-box">
+
+                            <div class="upload-icon">
+                                📸
+                            </div>
+
+                            <h3>Upload your meme</h3>
+
+                            <p>
+                                Choose an image from your device
+                            </p>
+
+                            <label for="image" class="choose-image-btn">
+                                Choose Image
+                            </label>
+
+                            <input
+                                type="file"
+                                id="image"
+                                name="image"
+                                accept="image/*"
+                                required
+                            >
+
+                            <span class="file-name">
+                                JPG, PNG or WEBP
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= DESCRIPTION ================= -->
+
+                    <div class="form-group">
+
+                        <label for="caption">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="caption"
+                            name="caption"
+                            rows="5"
+                            placeholder="Write something about your meme..."
+                            required
+                        ></textarea>
+
+                        <div class="input-hint">
+                            Tell everyone why this meme is funny 😂
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= CATEGORY ================= -->
+
+                    <div class="form-group">
+
+                        <label for="cato">
+                            Category
+                        </label>
+
+                        <select id="cato" name="cato" required>
+
+                            <option value="" selected disabled>
+                                Select a category
+                            </option>
+
+                            {% for i in categories%}
+
+                            <option value="{{i.id}}">
+                                😂 {{i.name}}
+                            </option>
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- ================= BUTTONS ================= -->
+
+                    <div class="form-buttons">
+
+                        <a href="#" class="cancel-btn">
+                            Cancel
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="publish-btn"
+                        >
+                            🚀 Publish Post
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- Small Tip -->
+
+            <div class="create-post-tip">
+
+                💡 <strong>Tip:</strong>
+                Make your description fun and keep the community laughing!
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= MOBILE NAV ================= -->
+
+    <nav class="mobile-bottom-nav">
+
+        <a href="#" class="mobile-nav-item">
+            🏠
+            <span>Home</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item active">
+            ➕
+            <span>Create</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item">
+            ❤️
+            <span>Likes</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item">
+            👤
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+{% endblock %}
+
+

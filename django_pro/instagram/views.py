@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Posts,cat
+from .forms import check_post
 
 user = {"username":"KOPESH","caption":"Hi guyssssssssssssssss"}
 
@@ -7,5 +8,23 @@ user = {"username":"KOPESH","caption":"Hi guyssssssssssssssss"}
 def index(request):
     posts = Posts.objects.all()
     return render(request,"index.html",{"posts":posts})
+
+
+def new_post(request):
+    form = check_post()
+    if request.method == "POST":
+        cap=request.POST["caption"]
+        ima = request.FILES["image"]
+        ca = request.POST["cato"]
+        form = check_post(request.POST,request.FILES)
+        if form.is_valid():
+            c = cat.objects.get(id=ca)
+            Posts.objects.create(caption=cap,image=ima,cato=c)
+            print("Dome Mameyyyyyy")
+
+        else:
+            print("Wronggggggggggg")
+    category = cat.objects.all()
+    return render(request,"new_post.html",{"categories":category})
 
 # Create your views here.
