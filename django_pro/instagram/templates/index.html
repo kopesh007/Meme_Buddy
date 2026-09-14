@@ -50,6 +50,8 @@
 
                 </div>
 
+                
+
 
                 <div class="sidebar-tip">
 
@@ -82,82 +84,114 @@
 
                 </div>
 
+                {% include 'include/error.html'%}
+
 
                 <!-- ================= POST 1 ================= -->
                  {% for i in posts %}
 
-                <article class="post-card">
 
-                    <!-- Post Header -->
+                        <article class="post-card">
 
-                    <div class="post-header">
+                            <!-- Clickable Post Area -->
 
-                        <div class="post-user">
+                            <a href="{% url 'instagram:detail' slu=i.sl %}" class="post-click-area">
 
-                            <div class="post-avatar avatar-purple">
-                                🤓
+                                <!-- Post Header -->
+
+                                <div class="post-header">
+
+                                    <div class="post-user">
+
+                                        <div class="post-avatar avatar-purple">
+                                            🤓
+                                        </div>
+
+                                        <div class="post-user-info">
+                                            <h3>code_master</h3>
+                                            <p>{{i.date}}</p>
+                                        </div>
+
+                                    </div>
+
+                                    <span class="post-menu">
+                                        •••
+                                    </span>
+
+                                </div>
+
+
+                                <!-- Post Image -->
+
+                                <div class="post-image">
+
+                                    <img
+                                        src="{{i.select_image}}"
+                                        alt="Programming meme"
+                                    >
+
+                                </div>
+
+
+                                <!-- Caption -->
+
+                                <div class="post-caption">
+
+                                    <strong>code_master</strong>
+
+                                    <span>
+                                        {{i.caption}}😭😂
+                                    </span>
+
+                                </div>
+
+                            </a>
+
+
+                            <!-- Post Actions -->
+
+                            <div class="post-actions">
+
+                                <div class="post-action-left">
+
+                                    <button class="action-btn">
+                                        ♡
+                                    </button>
+
+                                    <button class="action-btn">
+                                        💬
+                                    </button>
+
+                                    <button class="action-btn">
+                                        ↗
+                                    </button>
+
+                                </div>
+
+                                <button class="save-btn">
+                                    ♧
+                                </button>
+
                             </div>
 
-                            <div class="post-user-info">
-                                <h3>KOPESH</h3>
-                                <p>{{i.date}}</p>
+
+                            <!-- Likes -->
+
+                            <div class="post-likes">
+
+                                Liked by <strong>funny_guy</strong>
+                                and <strong>2,438 others</strong>
+
                             </div>
 
-                        </div> 
 
-                    </div>
+                            <!-- Comments -->
 
-
-                    <!-- Post Image -->
-
-                  <div class="post-image">
-
-                    <img src="{{ i.select_image }}" alt="{{ i.caption }}">
-
-                    </div>
-
-                    <!-- Post Actions -->
-
-                    <div class="post-actions">
-
-                        <div class="post-action-left">
-
-                            <button class="action-btn">
-                                ♡
+                            <button class="comments-link">
+                                View all 184 comments
                             </button>
 
-
-                        </div>
-
-                        <button class="save-btn">
-                            ♧
-                        </button>
-
-                    </div>
-
-
-                    <!-- Likes -->
-
-                    <div class="post-likes">
-                        Liked by <strong>funny_guy</strong> and
-                        <strong>2,438 others</strong>
-                    </div>
-
-
-                    <!-- Caption -->
-
-                    <div class="post-caption">
-
-                        <strong>KOPESH</strong>
-
-                        <span>
-                            {{i.caption}}😭😂
-                        </span>
-
-                    </div>
-
-
-                </article>
+                        </article>
 
                 {% endfor %}
 

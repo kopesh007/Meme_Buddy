@@ -6,4 +6,5 @@ app_name="instagram"
 urlpatterns=[
     path("",views.index,name="index"),
     path("new_post/",views.new_post,name="new post"),
+    path("detail/<str:slu>",views.detail,name="detail"),
 ]

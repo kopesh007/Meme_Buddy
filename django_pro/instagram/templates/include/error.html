@@ -1,0 +1,11 @@
+{% if messages %}
+
+    {% for i in messages %}
+
+        <div class="django-message {{ i.tags }}">
+            <span>{{ i }}</span>
+        </div>
+
+    {% endfor %}
+
+{% endif %}

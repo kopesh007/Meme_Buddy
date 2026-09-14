@@ -1,0 +1,258 @@
+
+{% extends 'base.html'%}
+
+{% block "content" %}
+
+
+
+    <!-- ================= MAIN PAGE ================= -->
+
+    <main class="post-detail-page">
+
+
+        <div class="post-detail-layout">
+
+            {% include 'include/error.html'%}
+
+
+            <!-- ================= MAIN POST ================= -->
+
+            <section class="detail-post-card">
+
+
+                <!-- POST USER -->
+
+                <div class="detail-post-header">
+
+                    <div class="detail-user">
+
+                        <div class="detail-avatar">
+                            😎
+                        </div>
+
+                        <div class="detail-user-info">
+
+                            <h2>code_master</h2>
+
+                            <p>
+                                @code_master
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button class="detail-menu">
+                        •••
+                    </button>
+
+                </div>
+
+
+
+                <!-- POST IMAGE -->
+
+                <div class="detail-image-container">
+
+                    <img
+                        src="{{post.select_image}}"
+                        alt="Programming meme"
+                    >
+
+                </div>
+
+
+
+                <!-- POST CONTENT -->
+
+                <div class="detail-post-content">
+
+
+                    <!-- CATEGORY -->
+
+                    <div class="post-category">
+                        {{post.cato | upper}}
+                    </div>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <h1>
+                        When you say you'll fix the bug in 5 minutes 😂
+                    </h1>
+
+                    <p class="detail-description">
+
+                        {{post.caption}}
+
+                    </p>
+
+
+
+                    <!-- TIME -->
+
+                    <div class="uploaded-time">
+
+                        🕒 Uploaded 2 hours ago
+
+                    </div>
+
+
+
+                    <!-- ACTIONS -->
+
+                    <div class="detail-actions">
+
+                        <div class="detail-action-left">
+
+                            <button class="detail-action-btn">
+                                ♡
+                            </button>
+
+                            <button class="detail-action-btn">
+                                💬
+                            </button>
+
+                            <button class="detail-action-btn">
+                                ↗
+                            </button>
+
+                        </div>
+
+
+                        <button class="detail-save-btn">
+                            ♧
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- LIKES -->
+
+                    <div class="detail-likes">
+
+                        ❤️
+                        Liked by
+                        <strong>meme_queen</strong>
+                        and
+                        <strong>2,438 others</strong>
+
+                    </div>
+
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= SAME CATEGORY POSTS ================= -->
+
+            {% if related %}
+            <aside class="related-posts">
+
+
+                <div class="related-heading">
+
+                    <span>
+                        💻
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            More like this
+                        </h2>
+
+                        <p>
+                            More Programming memes
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                {% for j in related %}
+                <!-- RELATED POST 1 -->
+
+                <a href="{% url 'instagram:detail' slu=j.sl %}" class="related-card">
+
+                    <div class="related-image">
+
+                        <img
+                            src="{{j.select_image}}"
+                            alt="Programming setup"
+                        >
+
+                    </div>
+
+                    <div class="related-content">
+
+                        <div class="related-user">
+                            👨‍💻 dev_guy
+                        </div>
+
+                        <h3>
+                            {{j.caption | truncatechars:5}}
+                        </h3>
+
+                        <span>
+                            ❤️ 1.8K likes
+                        </span>
+
+                    </div>
+
+                </a>
+
+                {% endfor %}
+
+
+
+
+            </aside>
+            {% endif %}
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= MOBILE NAV ================= -->
+
+    <nav class="mobile-bottom-nav">
+
+        <a href="#" class="mobile-nav-item active">
+            🏠
+            <span>Home</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item">
+            🔍
+            <span>Search</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item">
+            ➕
+            <span>Create</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item">
+            ❤️
+            <span>Likes</span>
+        </a>
+
+        <a href="#" class="mobile-nav-item">
+            👤
+            <span>Profile</span>
+        </a>
+
+    </nav>
+
+{% endblock %}
+```
