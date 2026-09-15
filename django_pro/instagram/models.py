@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 
 
 class cat(models.Model):
@@ -13,6 +14,7 @@ class Posts(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     cato = models.ForeignKey(cat,on_delete=models.CASCADE,default=1)
     sl = models.SlugField(unique=True,)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 
     def select_image(self):
         url = self.image if self.image.__str__().startswith(("http://","https://")) else self.image.url
