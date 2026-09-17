@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Posts,cat
-from .forms import check_post
+from .forms import check_post,login_form
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .forms import regi
@@ -59,8 +59,22 @@ def register(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data["password"])
             user.save()
+            messages.success(request,"User Has Been Registered ! ")
+            return redirect("instagram:index")
         else:
             print("Wrongggggg")
+            return render(request,"register.html",{'form':form,'name':name,'email':email,'password':password,'c_password':c_password})
     return render(request,"register.html",{'form':form})
+
+def login(request):
+    form = login_form()
+    if request.method == "POST":
+        form = login_form(request.POST)
+        if form.is_valid():
+            print("done")
+        else:
+            print("No Done !!!")
+
+    return render(request,"login.html")
 
 # Create your views here.

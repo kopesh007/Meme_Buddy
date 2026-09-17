@@ -1,0 +1,164 @@
+{% extends 'base.html'%}
+
+{% block "content" %}
+
+    <div class="login-page">
+
+       
+        <!-- Right Side -->
+        <div class="login-form-section">
+
+            <div class="login-card">
+
+                <div class="login-mobile-logo">
+                    😂 Meme Buddy
+                </div>
+
+                <div class="login-heading">
+
+                    <div class="login-icon">
+                        🔐
+                    </div>
+
+                    <h2>Login</h2>
+
+                    <p>
+                        Welcome back! Please enter your details.
+                    </p>
+
+                </div>
+
+
+                <!-- Message Example -->
+                 {% if messages or forms.non_field_errors%}
+
+                <div class="login-message success-message">
+                    {% include 'include/error.html'%}
+                </div>
+
+                {% endif %}
+
+
+
+
+            <form method="post" autocomplete="off">                   
+                {% csrf_token %}
+
+                    <!-- Username -->
+
+                    <div class="login-form-group">
+
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <div class="login-input-wrapper">
+                            <span>👤</span>
+
+                            <input
+                                type="text"
+                                id="username"
+                                name="name"
+                                autocomplete="off"
+                                placeholder="Enter your username"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div class="login-form-group">
+
+                        <div class="login-password-label">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <a href="#">
+                                Forgot password?
+                            </a>
+
+                        </div>
+
+                        <div class="login-input-wrapper">
+                            <span>🔒</span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                autocomplete="off"
+                                placeholder="Enter your password"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <!-- Remember Me -->
+
+                    <div class="login-remember">
+
+                        <label>
+                            <input type="checkbox" name="remember">
+                            <span>Remember me</span>
+                        </label>
+
+                    </div>
+
+
+                    <!-- Login Button -->
+
+                    <button type="submit" class="login-button">
+                        Login 🚀
+                    </button>
+
+                </form>
+
+
+                <!-- Register -->
+
+                <div class="login-register">
+
+                    <span>Don't have an account?</span>
+
+                    <a href="{% url "instagram:register"%}">
+                        Create Account
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Mobile Bottom Navigation -->
+
+    <nav class="mobile-bottom-nav">
+
+        <a href="index.html" class="mobile-nav-item">
+            <span>🏠</span>
+            <small>Home</small>
+        </a>
+
+        <a href="create-post.html" class="mobile-nav-item">
+            <span>➕</span>
+            <small>Create</small>
+        </a>
+
+        <a href="login.html" class="mobile-nav-item active">
+            <span>🔐</span>
+            <small>Login</small>
+        </a>
+
+    </nav>
+
+    {% endblock %}

@@ -40,12 +40,14 @@
 
 
                 <!-- MESSAGE -->
+                {% if messages or form.non_field_errors%}
 
                 <div class="register-message success-message">
 
                     {% include 'include/error.html'%}
 
                 </div>
+                {% endif %}
 
 
                 <!-- ERROR MESSAGE EXAMPLE -->
@@ -82,8 +84,10 @@
                                 type="text"
                                 id="username"
                                 name="username"
+                                
                                 placeholder="Enter your username"
                                 required
+                                value={{name}}
                             >
 
                         </div>
@@ -108,8 +112,10 @@
                                 type="email"
                                 id="email"
                                 name="email"
+                                
                                 placeholder="Enter your email"
                                 required
+                                value={{email}}
                             >
 
                         </div>
@@ -134,8 +140,10 @@
                                 type="password"
                                 id="password"
                                 name="password"
+                                
                                 placeholder="Enter your password"
                                 required
+                                value={{password}}
                             >
 
                         </div>
@@ -160,8 +168,11 @@
                                 type="password"
                                 id="confirm-password"
                                 name="c_password"
+                                
                                 placeholder="Confirm your password"
+                                
                                 required
+                                value={{c_password}}
                             >
 
                         </div>
@@ -211,7 +222,7 @@
 
                     Already have an account?
 
-                    <a href="#">
+                    <a href="{% url 'instagram:login' %}">
                         Login
                     </a>
 

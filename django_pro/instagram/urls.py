@@ -9,4 +9,5 @@ urlpatterns=[
     path("detail/<str:slu>",views.detail,name="detail"),
     path("about/",views.about,name="about"),
     path("register/",views.register,name="register"),
+    path("login/",views.login,name="login"),
 ]
