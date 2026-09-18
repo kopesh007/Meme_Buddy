@@ -1,0 +1,444 @@
+{% extends 'base.html' %}
+
+{% block "content" %}
+
+<div class="dashboard-page">
+
+    <!-- Dashboard Header -->
+
+    <div class="dashboard-top">
+
+        <div class="dashboard-user-info">
+
+            <div class="dashboard-avatar">
+                😎
+            </div>
+
+            <div>
+                <span class="dashboard-welcome">
+                    Welcome back 👋
+                </span>
+
+                <h1>{{user.username}}</h1>
+
+                <p>Manage your posts and profile content.</p>
+            </div>
+
+        </div>
+
+
+        <!-- New Post Button -->
+
+        <a href="new_post.html" class="new-post-btn">
+            ➕ New Post
+        </a>
+
+    </div>
+
+
+    <!-- Dashboard Stats -->
+
+    <div class="dashboard-stats">
+
+        <div class="dashboard-stat-card">
+
+            <div class="stat-icon">
+                📝
+            </div>
+
+            <div>
+                <span>Total Posts</span>
+                <strong>12</strong>
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat-card">
+
+            <div class="stat-icon">
+                🚀
+            </div>
+
+            <div>
+                <span>Published</span>
+                <strong>9</strong>
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stat-card">
+
+            <div class="stat-icon">
+                📋
+            </div>
+
+            <div>
+                <span>Drafts</span>
+                <strong>3</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- My Posts -->
+
+    <div class="my-posts-section">
+
+        <div class="my-posts-heading">
+
+            <div>
+                <h2>My Posts</h2>
+                <p>Manage all your memes from here.</p>
+            </div>
+
+        </div>
+
+
+        <!-- Post Grid -->
+
+        <div class="dashboard-post-grid">
+
+
+            <!-- Post Card 1 -->
+
+            <div class="dashboard-post-card">
+
+                <div class="dashboard-post-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80"
+                        alt="Programming meme"
+                    >
+
+                </div>
+
+
+                <div class="dashboard-post-content">
+
+                    <div class="dashboard-post-top">
+
+                        <span class="dashboard-category">
+                            💻 Programming
+                        </span>
+
+                        <span class="post-status published">
+                            Published
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        When the code finally works 😂
+                    </h3>
+
+                    <p>
+                        That beautiful moment when your code works
+                        after hours of debugging.
+                    </p>
+
+
+                    <div class="dashboard-post-meta">
+
+                        <span>❤️ 124 Likes</span>
+
+                        <span>💬 18 Comments</span>
+
+                    </div>
+
+
+                    <!-- Buttons -->
+
+                    <div class="dashboard-post-actions">
+
+                        <a
+                            href="modify_post.html"
+                            class="modify-post-btn"
+                        >
+                            ✏️ Modify
+                        </a>
+
+                        <button
+                            type="button"
+                            class="publish-post-btn"
+                        >
+                            🚀 Publish
+                        </button>
+
+                        <button
+                            type="button"
+                            class="delete-post-btn"
+                        >
+                            🗑️ Delete
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Post Card 2 -->
+
+            <div class="dashboard-post-card">
+
+                <div class="dashboard-post-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80"
+                        alt="Gaming meme"
+                    >
+
+                </div>
+
+
+                <div class="dashboard-post-content">
+
+                    <div class="dashboard-post-top">
+
+                        <span class="dashboard-category">
+                            🎮 Gaming
+                        </span>
+
+                        <span class="post-status published">
+                            Published
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        One more game before sleeping 🎮
+                    </h3>
+
+                    <p>
+                        Me at 2 AM saying this will be my last game.
+                    </p>
+
+
+                    <div class="dashboard-post-meta">
+
+                        <span>❤️ 89 Likes</span>
+
+                        <span>💬 12 Comments</span>
+
+                    </div>
+
+
+                    <div class="dashboard-post-actions">
+
+                        <a
+                            href="modify_post.html"
+                            class="modify-post-btn"
+                        >
+                            ✏️ Modify
+                        </a>
+
+                        <button
+                            type="button"
+                            class="publish-post-btn"
+                        >
+                            🚀 Publish
+                        </button>
+
+                        <button
+                            type="button"
+                            class="delete-post-btn"
+                        >
+                            🗑️ Delete
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Post Card 3 -->
+
+            <div class="dashboard-post-card">
+
+                <div class="dashboard-post-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
+                        alt="School meme"
+                    >
+
+                </div>
+
+
+                <div class="dashboard-post-content">
+
+                    <div class="dashboard-post-top">
+
+                        <span class="dashboard-category">
+                            📚 School
+                        </span>
+
+                        <span class="post-status draft">
+                            Draft
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        Tomorrow is the exam 😭
+                    </h3>
+
+                    <p>
+                        Me realizing I haven't studied anything yet.
+                    </p>
+
+
+                    <div class="dashboard-post-meta">
+
+                        <span>❤️ 0 Likes</span>
+
+                        <span>💬 0 Comments</span>
+
+                    </div>
+
+
+                    <div class="dashboard-post-actions">
+
+                        <a
+                            href="modify_post.html"
+                            class="modify-post-btn"
+                        >
+                            ✏️ Modify
+                        </a>
+
+                        <button
+                            type="button"
+                            class="publish-post-btn"
+                        >
+                            🚀 Publish
+                        </button>
+
+                        <button
+                            type="button"
+                            class="delete-post-btn"
+                        >
+                            🗑️ Delete
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Post Card 4 -->
+
+            <div class="dashboard-post-card">
+
+                <div class="dashboard-post-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80"
+                        alt="Movie meme"
+                    >
+
+                </div>
+
+
+                <div class="dashboard-post-content">
+
+                    <div class="dashboard-post-top">
+
+                        <span class="dashboard-category">
+                            🎬 Movies
+                        </span>
+
+                        <span class="post-status published">
+                            Published
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        That plot twist though 😳
+                    </h3>
+
+                    <p>
+                        Nobody was ready for that ending!
+                    </p>
+
+
+                    <div class="dashboard-post-meta">
+
+                        <span>❤️ 210 Likes</span>
+
+                        <span>💬 32 Comments</span>
+
+                    </div>
+
+
+                    <div class="dashboard-post-actions">
+
+                        <a
+                            href="modify_post.html"
+                            class="modify-post-btn"
+                        >
+                            ✏️ Modify
+                        </a>
+
+                        <button
+                            type="button"
+                            class="publish-post-btn"
+                        >
+                            🚀 Publish
+                        </button>
+
+                        <button
+                            type="button"
+                            class="delete-post-btn"
+                        >
+                            🗑️ Delete
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Mobile Navigation -->
+
+<nav class="mobile-bottom-nav">
+
+    <a href="index.html" class="mobile-nav-item">
+        <span>🏠</span>
+        <small>Home</small>
+    </a>
+
+    <a href="dashboard.html" class="mobile-nav-item active">
+        <span>📊</span>
+        <small>Dashboard</small>
+    </a>
+
+    <a href="new_post.html" class="mobile-nav-item">
+        <span>➕</span>
+        <small>New Post</small>
+    </a>
+
+</nav>
+
+{% endblock %}

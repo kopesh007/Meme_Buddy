@@ -4,6 +4,7 @@ from .forms import check_post,login_form
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .forms import regi
+from django.contrib.auth import authenticate,login as lin , logout as lout
 
 user = {"username":"KOPESH","caption":"Hi guyssssssssssssssss"}
 
@@ -70,11 +71,23 @@ def login(request):
     form = login_form()
     if request.method == "POST":
         form = login_form(request.POST)
+        name = request.POST["name"]
+        password = request.POST["password"]
         if form.is_valid():
-            print("done")
+            user = authenticate(username=name,password=password)
+            if user is not None:
+                lin(request,user)
+                messages.success(request,"You are loggined !")
+                return redirect("instagram:dash")
         else:
             print("No Done !!!")
+            messages.success(request,"Something wents Wrong !")
+            return render(request,"login.html",{'form':form,'name':name,'password':password})
 
     return render(request,"login.html")
+
+def dash(request):
+    print(request.user)
+    return render(request,"dash.html")
 
 # Create your views here.

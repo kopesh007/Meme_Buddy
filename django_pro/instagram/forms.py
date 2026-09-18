@@ -43,7 +43,7 @@ class login_form(forms.Form):
         u_name = cl_data.get("name")
         password = cl_data.get("password")
 
-        user = authenticate(name=u_name,password=password)
+        user = authenticate(username=u_name,password=password)
 
         if(user is None):
             raise forms.ValidationError("User Not Found ! , Please Register !")

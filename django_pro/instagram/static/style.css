@@ -4429,3 +4429,610 @@ a {
         font-size: 11px;
     }
 }
+
+/* =========================================
+   MEME BUDDY - USER DASHBOARD
+========================================= */
+
+.dashboard-page {
+    min-height: 100vh;
+    padding: 40px 6% 80px;
+    background: #f8f7ff;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   DASHBOARD TOP
+========================================= */
+
+.dashboard-top {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+/* User Info */
+
+.dashboard-user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dashboard-avatar {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        135deg,
+        #7048e8,
+        #e83e8c
+    );
+
+    color: white;
+    font-size: 30px;
+
+    box-shadow:
+        0 8px 20px rgba(112, 72, 232, 0.20);
+}
+
+.dashboard-welcome {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #7048e8;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.dashboard-user-info h1 {
+    margin: 0;
+
+    color: #222;
+
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.dashboard-user-info p {
+    margin: 4px 0 0;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   NEW POST BUTTON
+========================================= */
+
+.new-post-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    padding: 13px 20px;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #7048e8,
+        #e83e8c
+    );
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.new-post-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(112, 72, 232, 0.25);
+
+    color: white;
+}
+
+
+/* =========================================
+   DASHBOARD STATS
+========================================= */
+
+.dashboard-stats {
+    max-width: 1200px;
+    margin: 0 auto 35px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.dashboard-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 6px 25px rgba(50, 30, 100, 0.07);
+}
+
+.stat-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f1ebff;
+
+    border-radius: 12px;
+
+    font-size: 21px;
+}
+
+.dashboard-stat-card span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+.dashboard-stat-card strong {
+    display: block;
+
+    color: #333;
+
+    font-size: 22px;
+}
+
+
+/* =========================================
+   MY POSTS
+========================================= */
+
+.my-posts-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.my-posts-heading {
+    margin-bottom: 20px;
+}
+
+.my-posts-heading h2 {
+    margin: 0 0 5px;
+
+    color: #222;
+
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.my-posts-heading p {
+    margin: 0;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   POST GRID
+========================================= */
+
+.dashboard-post-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =========================================
+   POST CARD
+========================================= */
+
+.dashboard-post-card {
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 30px rgba(50, 30, 100, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.dashboard-post-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(50, 30, 100, 0.12);
+}
+
+
+/* =========================================
+   POST IMAGE
+========================================= */
+
+.dashboard-post-image {
+    width: 100%;
+    height: 260px;
+
+    overflow: hidden;
+
+    background: #f1f1f1;
+}
+
+.dashboard-post-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: 0.4s ease;
+}
+
+.dashboard-post-card:hover
+.dashboard-post-image img {
+    transform: scale(1.03);
+}
+
+
+/* =========================================
+   POST CONTENT
+========================================= */
+
+.dashboard-post-content {
+    padding: 20px;
+}
+
+
+/* Top */
+
+.dashboard-post-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-bottom: 12px;
+}
+
+.dashboard-category {
+    padding: 6px 9px;
+
+    background: #f2edff;
+
+    border-radius: 7px;
+
+    color: #7048e8;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.post-status {
+    padding: 6px 9px;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.post-status.published {
+    background: #eafaf0;
+    color: #198754;
+}
+
+.post-status.draft {
+    background: #fff6df;
+    color: #b77900;
+}
+
+
+/* =========================================
+   POST TEXT
+========================================= */
+
+.dashboard-post-content h3 {
+    margin: 0 0 8px;
+
+    color: #222;
+
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.dashboard-post-content > p {
+    margin: 0 0 15px;
+
+    color: #777;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   POST META
+========================================= */
+
+.dashboard-post-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding-bottom: 17px;
+
+    border-bottom: 1px solid #eee;
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   POST ACTIONS
+========================================= */
+
+.dashboard-post-actions {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 16px;
+}
+
+.dashboard-post-actions a,
+.dashboard-post-actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+
+    padding: 10px 7px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+
+    transition: 0.25s ease;
+}
+
+
+/* Modify */
+
+.modify-post-btn {
+    border: 1px solid #ddd;
+
+    background: white;
+
+    color: #7048e8;
+}
+
+.modify-post-btn:hover {
+    background: #f3efff;
+    border-color: #7048e8;
+}
+
+
+/* Publish */
+
+.publish-post-btn {
+    border: none;
+
+    background: #7048e8;
+
+    color: white;
+}
+
+.publish-post-btn:hover {
+    background: #5d38cf;
+}
+
+
+/* Delete */
+
+.delete-post-btn {
+    border: 1px solid #f0caca;
+
+    background: #fff5f5;
+
+    color: #dc3545;
+}
+
+.delete-post-btn:hover {
+    background: #ffe5e5;
+
+    border-color: #dc3545;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .dashboard-page {
+        padding: 30px 4% 80px;
+    }
+
+    .dashboard-post-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-post-image {
+        height: 300px;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .dashboard-page {
+        padding: 25px 15px 90px;
+    }
+
+    .dashboard-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-user-info {
+        width: 100%;
+    }
+
+    .dashboard-avatar {
+        width: 55px;
+        height: 55px;
+
+        border-radius: 15px;
+
+        font-size: 25px;
+    }
+
+    .dashboard-user-info h1 {
+        font-size: 23px;
+    }
+
+    .dashboard-user-info p {
+        font-size: 12px;
+    }
+
+    .new-post-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    /* Stats */
+
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-bottom: 28px;
+    }
+
+    .dashboard-stat-card {
+        padding: 15px;
+    }
+
+
+    /* Posts */
+
+    .dashboard-post-grid {
+        gap: 18px;
+    }
+
+    .dashboard-post-image {
+        height: 240px;
+    }
+
+    .dashboard-post-content {
+        padding: 17px;
+    }
+
+    .dashboard-post-content h3 {
+        font-size: 16px;
+    }
+
+
+    /* Buttons */
+
+    .dashboard-post-actions {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dashboard-post-actions .delete-post-btn {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+    .dashboard-post-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dashboard-post-image {
+        height: 220px;
+    }
+
+}
