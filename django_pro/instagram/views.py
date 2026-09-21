@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Posts,cat
 from .forms import check_post,login_form
 from django.contrib import messages
@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from .forms import regi
 from django.contrib.auth import authenticate,login as lin , logout as lout
 
-user = {"username":"KOPESH","caption":"Hi guyssssssssssssssss"}
+
 
 
 def index(request):
@@ -23,16 +23,18 @@ def new_post(request):
         form = check_post(request.POST,request.FILES)
 
         if form.is_valid():
-            c = cat.objects.get(id=ca)
-            Posts.objects.create(caption=cap,image=ima,cato=c)
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
             messages.success(request,"Post has been uploaded !")
+            return redirect("instagram:index")
             print("Dome Mameyyyyyy")
 
         else:
             messages.error(request,"Something went Wrong !!!")
             print("Wronggggggggggg")
     category = cat.objects.all()
-    return render(request,"new_post.html",{"categories":category})
+    return render(request,"new_post.html",{'form':form,"categories":category})
 
 def detail(request,slu):
     try:
@@ -60,8 +62,8 @@ def register(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data["password"])
             user.save()
-            messages.success(request,"User Has Been Registered ! ")
-            return redirect("instagram:index")
+            messages.success(request,"User Has Been Registered ! , Now You can Login")
+            return redirect("instagram:login")
         else:
             print("Wrongggggg")
             return render(request,"register.html",{'form':form,'name':name,'email':email,'password':password,'c_password':c_password})
@@ -78,7 +80,7 @@ def login(request):
             if user is not None:
                 lin(request,user)
                 messages.success(request,"You are loggined !")
-                return redirect("instagram:dash")
+                return redirect("instagram:index")
         else:
             print("No Done !!!")
             messages.success(request,"Something wents Wrong !")
@@ -87,7 +89,32 @@ def login(request):
     return render(request,"login.html")
 
 def dash(request):
-    print(request.user)
-    return render(request,"dash.html")
+    posts = Posts.objects.filter(user=request.user).order_by("cato")
+
+    return render(request,"dash.html",{'posts':posts})
+
+def logout(request):
+    lout(request)
+    return redirect("instagram:index")
+
+def modify(request,id):
+    post = get_object_or_404(Posts,id=id)
+    form = check_post()
+    categories = cat.objects.all()
+    
+    if request.method == 'POST':
+        form = check_post(request.POST,request.FILES,instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Post has been updated !")
+            return redirect("instagram:dash")
+        else:
+            messages.success(request,"Something Wents Wrong !!!")
+        return redirect("instagram:dash")
+    return render(request,"edit.html",{'form':form,'post':post,'categories':categories})
+
+
+
+
 
 # Create your views here.

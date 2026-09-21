@@ -33,15 +33,18 @@
                         Home
                     </a>
 
-                    <a href="#" class="sidebar-item">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'instagram:dash' %}" class="sidebar-item">
                         <span>👤</span>
                         My Profile
                     </a>
-
-                    <a href="{% url 'instagram:new post'%}" class="sidebar-item">
-                        <span>➕</span>
-                        Create Post
+                    
+                        <a href="#" onclick="check_url('{% url 'instagram:logout' %}'); return false;" class="sidebar-item">
+                        <span>👤</span>
+                        Logout
                     </a>
+
+                    {% endif %}
 
                     <a href="#" class="sidebar-item">
                         <span>📞</span>
@@ -68,9 +71,11 @@
 
                 </div>
 
+                {% include 'include/error.html'%}
+
             </aside>
 
-            {% include 'include/error.html'%}
+            
 
 
             <!-- ================= POSTS FEED ================= -->
@@ -84,9 +89,13 @@
                         <p>See what your Meme Buddies are sharing.</p>
                     </div>
 
+                    {% if user.is_authenticated %}
+
                     <a href="{% url 'instagram:new post' %}" class="create-post-btn">
                         + Create
                     </a>
+
+                    {% endif %}
 
                 </div>
 
@@ -113,7 +122,7 @@
                                         </div>
 
                                         <div class="post-user-info">
-                                            <h3>code_master</h3>
+                                            <h3>{{i.user}}</h3>
                                             <p>{{i.date}}</p>
                                         </div>
 
@@ -142,7 +151,7 @@
 
                                 <div class="post-caption">
 
-                                    <strong>code_master</strong>
+                                    <strong>{{i.user}}</strong>
 
                                     <span>
                                         {{i.caption}}😭😂
@@ -321,6 +330,17 @@
         </a>
 
     </nav>
+
+    <script>
+        function check_url(url)
+        {
+            var user = confirm("Are You Sure...? Want To Logout ?")
+            if(user)
+            {
+                window.location.href=url
+            }
+        }
+    </script>
 
 {% endblock %}
 

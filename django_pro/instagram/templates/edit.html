@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+
+{% block "content" %}
+
+<div class="edit-post-page">
+
+    <!-- Page Header -->
+
+    <div class="edit-post-header">
+
+        <span class="edit-page-label">
+            MEME BUDDY
+        </span>
+
+        <h1>Edit Your Post ✏️</h1>
+
+        <p>
+            Update your image, description or category.
+        </p>
+
+    </div>
+
+    {% include 'include/error.html'%}
+
+    <!-- Edit Post Card -->
+
+    <div class="edit-post-card">
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Current Image -->
+
+            <div class="edit-form-group">
+
+                <label>
+                    Current Image
+                </label>
+
+                <div class="edit-current-image">
+
+                    <img
+                        src="{{post.select_image}}"
+                        alt="Current meme"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Change Image -->
+
+            <div class="edit-form-group">
+
+                <label for="image">
+                    Change Image
+                </label>
+
+                <div class="edit-image-upload">
+
+                    <div class="edit-upload-icon">
+                        🖼️
+                    </div>
+
+                    <div>
+                        <strong>Choose a new image</strong>
+
+                        <p>
+                            Leave empty if you want to keep the current image.
+                        </p>
+                    </div>
+
+                    <label
+                        for="image"
+                        class="edit-choose-image"
+                    >
+                        Choose Image
+                    </label>
+
+                    <input
+                        type="file"
+                        id="image"
+                        name="image"
+                        accept="image/*"
+                        hidden
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Description -->
+
+            <div class="edit-form-group">
+
+                <label for="description">
+                    Description
+                </label>
+
+                <textarea
+                    id="description"
+                    name="caption"
+                    rows="6"
+                    placeholder="Write something about your meme..."
+                >{{post.caption}}</textarea>
+
+            </div>
+
+
+            <!-- Category -->
+
+            <div class="edit-form-group">
+
+                <label for="category">
+                    Category
+                </label>
+
+                <select
+                    id="category"
+                    name="cato"
+                >
+                <option value="" selected disabled>
+                                Select a category
+                </option>
+                    {% for i in categories %}
+
+                    <option value="{{i.id}}">
+                        {{i.name}}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <!-- Post Information -->
+
+            <div class="edit-post-info">
+
+                <div>
+                    <span>Created</span>
+                    <strong>{{post.date}}</strong>
+                </div>
+
+                <div>
+                    <span>Status</span>
+                    <strong class="edit-status">
+                        Published
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <!-- Buttons -->
+
+            <div class="edit-post-buttons">
+
+                <a
+                    href="dashboard.html"
+                    class="edit-cancel-btn"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    class="edit-update-btn"
+                >
+                    💾 Update Post
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- Mobile Navigation -->
+
+<nav class="mobile-bottom-nav">
+
+    <a href="index.html" class="mobile-nav-item">
+        <span>🏠</span>
+        <small>Home</small>
+    </a>
+
+    <a href="dashboard.html" class="mobile-nav-item active">
+        <span>📊</span>
+        <small>Dashboard</small>
+    </a>
+
+    <a href="new_post.html" class="mobile-nav-item">
+        <span>➕</span>
+        <small>New Post</small>
+    </a>
+
+</nav>
+
+{% endblock %}

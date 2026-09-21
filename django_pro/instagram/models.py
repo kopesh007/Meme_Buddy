@@ -13,7 +13,7 @@ class Posts(models.Model):
     image = models.ImageField(null=True,upload_to="Posts/images",max_length=500)
     date = models.DateTimeField(auto_now_add=True)
     cato = models.ForeignKey(cat,on_delete=models.CASCADE,default=1)
-    sl = models.SlugField(unique=True,)
+    sl = models.SlugField(unique=True,max_length=300)
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
 
     def select_image(self):

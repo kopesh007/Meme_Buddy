@@ -11,4 +11,6 @@ urlpatterns=[
     path("register/",views.register,name="register"),
     path("login/",views.login,name="login"),
     path("dash/",views.dash,name="dash"),
+    path("logout/",views.logout,name="logout"),
+    path("modify/<int:id>",views.modify,name="modify"),
 ]

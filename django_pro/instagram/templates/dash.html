@@ -28,8 +28,9 @@
 
 
         <!-- New Post Button -->
+         
 
-        <a href="new_post.html" class="new-post-btn">
+        <a href="{% url 'instagram:new post' %}" class="new-post-btn">
             ➕ New Post
         </a>
 
@@ -83,6 +84,8 @@
 
     </div>
 
+    {% include 'include/error.html'%}
+
 
     <!-- My Posts -->
 
@@ -102,7 +105,7 @@
 
         <div class="dashboard-post-grid">
 
-
+            {% for post in posts%}
             <!-- Post Card 1 -->
 
             <div class="dashboard-post-card">
@@ -110,7 +113,7 @@
                 <div class="dashboard-post-image">
 
                     <img
-                        src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80"
+                        src="{{post.select_image}}"
                         alt="Programming meme"
                     >
 
@@ -156,7 +159,7 @@
                     <div class="dashboard-post-actions">
 
                         <a
-                            href="modify_post.html"
+                            href="{%  url 'instagram:modify' id=post.id %}"
                             class="modify-post-btn"
                         >
                             ✏️ Modify
@@ -182,236 +185,7 @@
 
             </div>
 
-
-            <!-- Post Card 2 -->
-
-            <div class="dashboard-post-card">
-
-                <div class="dashboard-post-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80"
-                        alt="Gaming meme"
-                    >
-
-                </div>
-
-
-                <div class="dashboard-post-content">
-
-                    <div class="dashboard-post-top">
-
-                        <span class="dashboard-category">
-                            🎮 Gaming
-                        </span>
-
-                        <span class="post-status published">
-                            Published
-                        </span>
-
-                    </div>
-
-
-                    <h3>
-                        One more game before sleeping 🎮
-                    </h3>
-
-                    <p>
-                        Me at 2 AM saying this will be my last game.
-                    </p>
-
-
-                    <div class="dashboard-post-meta">
-
-                        <span>❤️ 89 Likes</span>
-
-                        <span>💬 12 Comments</span>
-
-                    </div>
-
-
-                    <div class="dashboard-post-actions">
-
-                        <a
-                            href="modify_post.html"
-                            class="modify-post-btn"
-                        >
-                            ✏️ Modify
-                        </a>
-
-                        <button
-                            type="button"
-                            class="publish-post-btn"
-                        >
-                            🚀 Publish
-                        </button>
-
-                        <button
-                            type="button"
-                            class="delete-post-btn"
-                        >
-                            🗑️ Delete
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Post Card 3 -->
-
-            <div class="dashboard-post-card">
-
-                <div class="dashboard-post-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
-                        alt="School meme"
-                    >
-
-                </div>
-
-
-                <div class="dashboard-post-content">
-
-                    <div class="dashboard-post-top">
-
-                        <span class="dashboard-category">
-                            📚 School
-                        </span>
-
-                        <span class="post-status draft">
-                            Draft
-                        </span>
-
-                    </div>
-
-
-                    <h3>
-                        Tomorrow is the exam 😭
-                    </h3>
-
-                    <p>
-                        Me realizing I haven't studied anything yet.
-                    </p>
-
-
-                    <div class="dashboard-post-meta">
-
-                        <span>❤️ 0 Likes</span>
-
-                        <span>💬 0 Comments</span>
-
-                    </div>
-
-
-                    <div class="dashboard-post-actions">
-
-                        <a
-                            href="modify_post.html"
-                            class="modify-post-btn"
-                        >
-                            ✏️ Modify
-                        </a>
-
-                        <button
-                            type="button"
-                            class="publish-post-btn"
-                        >
-                            🚀 Publish
-                        </button>
-
-                        <button
-                            type="button"
-                            class="delete-post-btn"
-                        >
-                            🗑️ Delete
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Post Card 4 -->
-
-            <div class="dashboard-post-card">
-
-                <div class="dashboard-post-image">
-
-                    <img
-                        src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80"
-                        alt="Movie meme"
-                    >
-
-                </div>
-
-
-                <div class="dashboard-post-content">
-
-                    <div class="dashboard-post-top">
-
-                        <span class="dashboard-category">
-                            🎬 Movies
-                        </span>
-
-                        <span class="post-status published">
-                            Published
-                        </span>
-
-                    </div>
-
-
-                    <h3>
-                        That plot twist though 😳
-                    </h3>
-
-                    <p>
-                        Nobody was ready for that ending!
-                    </p>
-
-
-                    <div class="dashboard-post-meta">
-
-                        <span>❤️ 210 Likes</span>
-
-                        <span>💬 32 Comments</span>
-
-                    </div>
-
-
-                    <div class="dashboard-post-actions">
-
-                        <a
-                            href="modify_post.html"
-                            class="modify-post-btn"
-                        >
-                            ✏️ Modify
-                        </a>
-
-                        <button
-                            type="button"
-                            class="publish-post-btn"
-                        >
-                            🚀 Publish
-                        </button>
-
-                        <button
-                            type="button"
-                            class="delete-post-btn"
-                        >
-                            🗑️ Delete
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
+            {% endfor %}
 
         </div>
 
