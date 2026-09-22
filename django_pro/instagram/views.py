@@ -113,6 +113,13 @@ def modify(request,id):
         return redirect("instagram:dash")
     return render(request,"edit.html",{'form':form,'post':post,'categories':categories})
 
+def dele(request,id):
+    
+    post = get_object_or_404(Posts,id=id)
+    post.delete()
+    messages.success(request,"Post Has Been Deleted !")
+    return redirect("instagram:dash")    
+
 
 
 

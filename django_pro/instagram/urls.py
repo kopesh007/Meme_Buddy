@@ -13,4 +13,5 @@ urlpatterns=[
     path("dash/",views.dash,name="dash"),
     path("logout/",views.logout,name="logout"),
     path("modify/<int:id>",views.modify,name="modify"),
+    path("dele/<int:id>",views.dele,name="dele"),
 ]

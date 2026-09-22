@@ -172,12 +172,13 @@
                             🚀 Publish
                         </button>
 
-                        <button
-                            type="button"
+                        <a
+                            href="#"
+                            onclick="check_url('{% url 'instagram:dele' id=post.id %}'); return false;"
                             class="delete-post-btn"
                         >
                             🗑️ Delete
-                        </button>
+                    </a>
 
                     </div>
 
@@ -214,5 +215,19 @@
     </a>
 
 </nav>
+
+<script>
+
+    function check_url(url)
+    {
+        var user = confirm("Are You Sure ? , Want to Delete This Post !")
+        if(user)
+        {
+            window.location.href=url
+        }
+    }
+
+
+</script>
 
 {% endblock %}
