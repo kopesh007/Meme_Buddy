@@ -15,6 +15,7 @@ class Posts(models.Model):
     cato = models.ForeignKey(cat,on_delete=models.CASCADE,default=1)
     sl = models.SlugField(unique=True,max_length=300)
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+    state = models.BooleanField(default=False)
 
     def select_image(self):
         url = self.image if self.image.__str__().startswith(("http://","https://")) else self.image.url

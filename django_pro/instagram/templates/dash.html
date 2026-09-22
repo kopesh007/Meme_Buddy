@@ -129,8 +129,9 @@
                         </span>
 
                         <span class="post-status published">
-                            Published
+                            Publish
                         </span>
+
 
                     </div>
 
@@ -165,12 +166,16 @@
                             ✏️ Modify
                         </a>
 
-                        <button
-                            type="button"
+                        {% if not post.state%}
+
+                        <a
+                            href="#"
+                            onclick="check_post('{%url 'instagram:publish' id=post.id %}'); return false;"
                             class="publish-post-btn"
                         >
                             🚀 Publish
-                        </button>
+                    </a>
+                    {% endif %}
 
                         <a
                             href="#"
@@ -222,6 +227,15 @@
     {
         var user = confirm("Are You Sure ? , Want to Delete This Post !")
         if(user)
+        {
+            window.location.href=url
+        }
+    }
+
+    function check_post(url)
+    {
+        var user = confirm("Are You Sure , Want To Publish ?")
+        if (user)
         {
             window.location.href=url
         }

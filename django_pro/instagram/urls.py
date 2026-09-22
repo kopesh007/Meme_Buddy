@@ -14,4 +14,5 @@ urlpatterns=[
     path("logout/",views.logout,name="logout"),
     path("modify/<int:id>",views.modify,name="modify"),
     path("dele/<int:id>",views.dele,name="dele"),
+    path("publish/<int:id>",views.publish,name="publish"),
 ]

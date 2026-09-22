@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate,login as lin , logout as lout
 
 
 def index(request):
-    posts = Posts.objects.all()
+    posts = Posts.objects.filter(state=True)
     return render(request,"index.html",{"posts":posts})
 
 
@@ -118,7 +118,14 @@ def dele(request,id):
     post = get_object_or_404(Posts,id=id)
     post.delete()
     messages.success(request,"Post Has Been Deleted !")
-    return redirect("instagram:dash")    
+    return redirect("instagram:dash") 
+
+def publish(request,id):
+    post=get_object_or_404(Posts,id= id)
+    post.state=True
+    post.save()
+    messages.success(request,"Post Has Been Published !")
+    return redirect("instagram:dash")   
 
 
 
