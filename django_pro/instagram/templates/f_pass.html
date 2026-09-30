@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block "content" %}
+
+<div class="forgot-page">
+
+    <div class="forgot-card">
+
+        <!-- Logo -->
+
+        <div class="forgot-logo">
+            😂 Meme Buddy
+        </div>
+
+
+        <!-- Icon -->
+
+        <div class="forgot-icon">
+            🔐
+        </div>
+
+
+        <!-- Heading -->
+
+        <div class="forgot-heading">
+
+            <h1>Forgot Password?</h1>
+
+            <p>
+                No worries! Enter your email address and
+                we'll help you reset your password.
+            </p>
+
+        </div>
+
+
+        <!-- Message -->
+
+        {% include 'include/error.html'%}
+
+        <!--
+        <div class="forgot-message error-message">
+            ❌ No account found with this email address.
+        </div>
+        -->
+
+
+        <!-- Form -->
+
+        <form method=post>
+            {% csrf_token %}
+
+            <div class="forgot-form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <div class="forgot-input-wrapper">
+
+                    <span>📧</span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="forgot-button"
+            >
+                Send Reset Link 📩
+            </button>
+
+        </form>
+
+
+        <!-- Back to Login -->
+
+        <div class="forgot-login">
+
+            <a href="login.html">
+                ← Back to Login
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

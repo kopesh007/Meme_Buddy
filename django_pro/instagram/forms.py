@@ -75,6 +75,30 @@ class login_form(forms.Form):
             raise forms.ValidationError("User Not Found ! , Please Register !")
 
 
+class f_p(forms.Form):
+    email = forms.EmailField(label="Email",required=True)
+
+    def clean(self):
+        cl_data = super().clean()
+        email = cl_data.get("email")
+        if (not User.objects.filter(email=email).exists()):
+            raise forms.ValidationError("This Email Hasn't Registered yet !")
+
+class c_p(forms.Form):
+    password = forms.CharField(label="Password",max_length=50,required=True)
+    c_password = forms.CharField(label="Confirm Password",max_length=50,required=True)
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get("password")
+        c_password = cleaned_data.get("c_password")
+
+        if password and c_password and (not password == c_password):
+            raise forms.ValidationError("Conformation Password should be Same !!!")
+            
+
+        
+
         
 
 

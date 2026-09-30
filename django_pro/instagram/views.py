@@ -1,10 +1,16 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Posts,cat
-from .forms import check_post,login_form
+from .forms import check_post,login_form,f_p,c_p
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .forms import regi
 from django.contrib.auth import authenticate,login as lin , logout as lout
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
 
 
 
@@ -39,7 +45,7 @@ def new_post(request):
 def detail(request,slu):
     try:
         post = Posts.objects.get(sl=slu)
-        rel_posts = Posts.objects.filter(cato=post.cato).exclude(id=post.id)
+        rel_posts = Posts.objects.filter(cato=post.cato,state=True).exclude(id=post.id)
     except Exception:
         post = None
         messages.error(request,"Post hasn't been found")
@@ -126,6 +132,57 @@ def publish(request,id):
     post.save()
     messages.success(request,"Post Has Been Published !")
     return redirect("instagram:dash")   
+
+
+def f_pass(request):
+    form = f_p()
+    if request.method == "POST":
+        form = f_p(request.POST)
+        email = request.POST["email"]
+        if form.is_valid():
+            print("Done bro , email is valid ")
+            user = User.objects.get(email=email)
+            token = default_token_generator.make_token(user)
+            uid = urlsafe_base64_encode(force_bytes(user.pk))
+            c_site = get_current_site(request)
+            domain = c_site.domain
+            subject = "Password Reset for Meme Buddy Application..."
+            message = render_to_string("message.html",{'uid':uid,'token':token,'domain':domain})
+            send_mail(subject,
+            message,
+            'vvpr7575@gmail.com',
+            [email],
+            fail_silently=False)
+            messages.success(request,"Mail Has Been Sent ! , Kindly Check ! ")
+
+
+        else:
+            print("Nooo kabila")
+
+    return render(request,"f_pass.html",{'form':form})
+
+def reset(request,token,uidb64):
+    form = c_p()
+    if request.method == "POST":
+        form = c_p(request.POST)
+        password = request.POST["password"]
+        c_password = request.POST["c_password"]
+
+        if form.is_valid():
+            try:
+                uid = urlsafe_base64_decode(uidb64)
+                user = User.objects.get(id=uid)
+            except Exception:
+                user = None
+            if user and default_token_generator.check_token(user,token):
+                user.set_password(password)
+                user.save()
+                messages.success(request,"Password Has Been Updated !")
+                return redirect("instagram:login")
+            else:
+                messages.success(request,"Somethings Wents Wrong !!!")
+                return redirect("instagram:forgot password")
+    return render(request,"c_pass.html",{'form':form})
 
 
 

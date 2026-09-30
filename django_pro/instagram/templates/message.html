@@ -1,0 +1,14 @@
+
+{% autoescape off %}
+
+Dear User,
+This is From Django Application KOPESH...
+
+Please use the link below to reset your password and create a new password.
+
+**URL:** http://{{domain}}{% url 'instagram:reset' token=token uidb64=uid %}
+
+Regards,
+Meme Buddy Pltd....
+
+{% endautoescape %}

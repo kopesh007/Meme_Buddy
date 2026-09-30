@@ -15,4 +15,6 @@ urlpatterns=[
     path("modify/<int:id>",views.modify,name="modify"),
     path("dele/<int:id>",views.dele,name="dele"),
     path("publish/<int:id>",views.publish,name="publish"),
+    path("f_pass/",views.f_pass,name="forgot password"),
+    path("reset/<token>/<uidb64>",views.reset,name="reset"),
 ]

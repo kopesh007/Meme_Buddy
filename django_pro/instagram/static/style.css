@@ -5586,3 +5586,713 @@ a {
     }
 
 }
+
+/* =========================================
+   MEME BUDDY - FORGOT PASSWORD
+========================================= */
+
+.forgot-page {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    background: #f8f7ff;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.forgot-card {
+    width: 100%;
+    max-width: 430px;
+
+    padding: 40px;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 45px rgba(50, 30, 100, 0.12);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.forgot-logo {
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    color: #7048e8;
+
+    font-size: 23px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.forgot-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #eee8ff,
+        #ffe6f2
+    );
+
+    border-radius: 18px;
+
+    font-size: 30px;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.forgot-heading {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.forgot-heading h1 {
+    margin: 0 0 10px;
+
+    color: #222;
+
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.forgot-heading p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.forgot-message {
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.forgot-message.success-message {
+    background: #eafaf0;
+
+    color: #198754;
+
+    border: 1px solid #b7e4c7;
+}
+
+.forgot-message.error-message {
+    background: #fff0f0;
+
+    color: #dc3545;
+
+    border: 1px solid #f5b5b5;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.forgot-form-group {
+    margin-bottom: 22px;
+}
+
+.forgot-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #333;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   EMAIL INPUT
+========================================= */
+
+.forgot-input-wrapper {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 0 14px;
+
+    background: #fafafa;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 11px;
+
+    box-sizing: border-box;
+
+    transition: 0.3s ease;
+}
+
+.forgot-input-wrapper span {
+    font-size: 17px;
+}
+
+.forgot-input-wrapper input {
+    width: 100%;
+
+    padding: 14px 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #333;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+.forgot-input-wrapper input::placeholder {
+    color: #999;
+}
+
+.forgot-input-wrapper:focus-within {
+    background: #ffffff;
+
+    border-color: #7048e8;
+
+    box-shadow:
+        0 0 0 3px rgba(112, 72, 232, 0.10);
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.forgot-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #7048e8,
+        #e83e8c
+    );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.forgot-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(112, 72, 232, 0.25);
+}
+
+.forgot-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   LOGIN LINK
+========================================= */
+
+.forgot-login {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eeeeee;
+
+    text-align: center;
+}
+
+.forgot-login a {
+    color: #7048e8;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.forgot-login a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    .forgot-page {
+        padding: 20px 15px;
+    }
+
+    .forgot-card {
+        padding: 30px 20px;
+
+        border-radius: 18px;
+    }
+
+    .forgot-logo {
+        font-size: 21px;
+    }
+
+    .forgot-icon {
+        width: 58px;
+        height: 58px;
+
+        font-size: 27px;
+    }
+
+    .forgot-heading h1 {
+        font-size: 25px;
+    }
+
+    .forgot-heading p {
+        font-size: 13px;
+    }
+
+    .forgot-button {
+        padding: 13px;
+    }
+
+}
+
+/* =========================================
+   MEME BUDDY - UPDATE PASSWORD
+========================================= */
+
+.update-password-page {
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 20px;
+
+    background: #f8f7ff;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.update-password-card {
+    width: 100%;
+    max-width: 430px;
+
+    padding: 40px;
+
+    background: #ffffff;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 45px rgba(50, 30, 100, 0.12);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.update-password-logo {
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    color: #7048e8;
+
+    font-size: 23px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.update-password-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #eee8ff,
+        #ffe6f2
+    );
+
+    border-radius: 18px;
+
+    font-size: 30px;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.update-password-heading {
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.update-password-heading h1 {
+    margin: 0 0 10px;
+
+    color: #222;
+
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.update-password-heading p {
+    margin: 0;
+
+    color: #777;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   MESSAGES
+========================================= */
+
+.update-password-message {
+    width: 100%;
+
+    margin-bottom: 20px;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.update-password-message.success-message {
+    background: #eafaf0;
+
+    color: #198754;
+
+    border: 1px solid #b7e4c7;
+}
+
+.update-password-message.error-message {
+    background: #fff0f0;
+
+    color: #dc3545;
+
+    border: 1px solid #f5b5b5;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.update-password-form-group {
+    margin-bottom: 20px;
+}
+
+.update-password-form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #333;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.update-password-input-wrapper {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 0 14px;
+
+    background: #fafafa;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 11px;
+
+    box-sizing: border-box;
+
+    transition: 0.3s ease;
+}
+
+.update-password-input-wrapper span {
+    font-size: 17px;
+
+    flex-shrink: 0;
+}
+
+.update-password-input-wrapper input {
+    width: 100%;
+
+    padding: 14px 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #333;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+}
+
+.update-password-input-wrapper input::placeholder {
+    color: #999;
+}
+
+.update-password-input-wrapper:focus-within {
+    background: #ffffff;
+
+    border-color: #7048e8;
+
+    box-shadow:
+        0 0 0 3px rgba(112, 72, 232, 0.10);
+}
+
+
+/* =========================================
+   PASSWORD HINT
+========================================= */
+
+.password-hint {
+    margin: 4px 0 22px;
+
+    padding: 11px 13px;
+
+    background: #f8f7ff;
+
+    border-radius: 9px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   UPDATE BUTTON
+========================================= */
+
+.update-password-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: linear-gradient(
+        135deg,
+        #7048e8,
+        #e83e8c
+    );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.update-password-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(112, 72, 232, 0.25);
+}
+
+.update-password-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   BACK TO LOGIN
+========================================= */
+
+.update-password-login {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eeeeee;
+
+    text-align: center;
+}
+
+.update-password-login a {
+    color: #7048e8;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+.update-password-login a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+    .update-password-page {
+        padding: 20px 15px;
+    }
+
+    .update-password-card {
+        padding: 30px 20px;
+
+        border-radius: 18px;
+    }
+
+    .update-password-logo {
+        font-size: 21px;
+    }
+
+    .update-password-icon {
+        width: 58px;
+        height: 58px;
+
+        font-size: 27px;
+    }
+
+    .update-password-heading h1 {
+        font-size: 25px;
+    }
+
+    .update-password-heading p {
+        font-size: 13px;
+    }
+
+    .update-password-button {
+        padding: 13px;
+    }
+
+}
