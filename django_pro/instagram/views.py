@@ -11,6 +11,7 @@ from django.utils.encoding import force_bytes
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -19,7 +20,7 @@ def index(request):
     posts = Posts.objects.filter(state=True)
     return render(request,"index.html",{"posts":posts})
 
-
+@login_required
 def new_post(request):
     form = check_post()
     if request.method == "POST":
@@ -94,15 +95,20 @@ def login(request):
 
     return render(request,"login.html")
 
+@login_required
 def dash(request):
     posts = Posts.objects.filter(user=request.user).order_by("cato")
+    up = Posts.objects.filter(user=request.user,state = 1)
+    draft = Posts.objects.filter(user=request.user,state = 0)
 
-    return render(request,"dash.html",{'posts':posts})
+    return render(request,"dash.html",{'posts':posts,'up':up,'draft':draft})
 
+@login_required
 def logout(request):
     lout(request)
     return redirect("instagram:index")
 
+@login_required
 def modify(request,id):
     post = get_object_or_404(Posts,id=id)
     form = check_post()
@@ -119,6 +125,7 @@ def modify(request,id):
         return redirect("instagram:dash")
     return render(request,"edit.html",{'form':form,'post':post,'categories':categories})
 
+@login_required
 def dele(request,id):
     
     post = get_object_or_404(Posts,id=id)
@@ -126,12 +133,14 @@ def dele(request,id):
     messages.success(request,"Post Has Been Deleted !")
     return redirect("instagram:dash") 
 
+@login_required
 def publish(request,id):
     post=get_object_or_404(Posts,id= id)
     post.state=True
     post.save()
     messages.success(request,"Post Has Been Published !")
     return redirect("instagram:dash")   
+
 
 
 def f_pass(request):

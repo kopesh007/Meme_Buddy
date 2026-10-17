@@ -25,7 +25,21 @@ SECRET_KEY = 'django-insecure-gw0le^1&8l3-yc256&8nq2v7jg15!tb(3a#vp+*pj6c^nfp-uu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# k:\Meme_buddy\django_pro\django_pro\settings.py
+
+ALLOWED_HOSTS = [
+    'certified-gully-yoyo.ngrok-free.dev', 
+    'localhost', 
+    '127.0.0.1',
+]
+# k:\Meme_buddy\django_pro\django_pro\settings.py
+
+# Replace 'your-subdomain.ngrok-free.app' with your actual ngrok URL
+CSRF_TRUSTED_ORIGINS = [
+    'https://certified-gully-yoyo.ngrok-free.dev', 
+    'https://localhost', 
+    'http://localhost',
+]
 
 
 # Application definition
@@ -73,14 +87,17 @@ WSGI_APPLICATION = 'django_pro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+import dj_database_url
+import os
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'meme',
-        'USER':'root',
-        'PASSWORD':'kopeshdb',
-        'HOST':'localhost',
-        'PORT':'3306',
+    'default':{
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME':'postgre_meme',
+        'USER':'postgre_meme_user',
+        'PASSWORD':'4MCJ7V09F0Q4cYgCjwQooKTthCFeyg9o',
+        'HOST':'dpg-db854tou01pc73einop0-a.oregon-postgres.render.com',
+        'PORT':'5432',
     }
 }
 
@@ -140,4 +157,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "vvpr7575@gmail.com"
 
 EMAIL_HOST_PASSWORD = "waumfqtaceebjpcv"
+
+LOGIN_URL="/login"
 
