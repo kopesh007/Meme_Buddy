@@ -34,7 +34,7 @@ def new_post(request):
             post.user = request.user
             post.save()
             messages.success(request,"Post has been uploaded !")
-            return redirect("instagram:index")
+            return redirect("instagram:dash")
             print("Dome Mameyyyyyy")
 
         else:
@@ -139,7 +139,7 @@ def publish(request,id):
     post.state=True
     post.save()
     messages.success(request,"Post Has Been Published !")
-    return redirect("instagram:dash")   
+    return redirect("instagram:index")   
 
 
 
